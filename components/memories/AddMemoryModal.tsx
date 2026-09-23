@@ -64,11 +64,6 @@ export function AddMemoryModal({ open, onClose, onCreated }: AddMemoryModalProps
 
       const coupleId = await getMyCoupleId(supabase, user.id);
 
-      console.log("MEMORY DEBUG:", {
-        userId: user.id,
-        email: user.email,
-        coupleId,
-      });
       if (!coupleId) throw new Error("Casal não encontrado.");
 
       const ext = file.name.split(".").pop();
