@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg text-ink-primary antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light {
+  @apply bg-bg-light text-ink-primary-light;
+}
+
+::selection {
+  @apply bg-accent/30;
+}
+
+/* Scrollbar discreta */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full;
+}
+body.light ::-webkit-scrollbar-thumb {
+  @apply bg-black/10;
+}
+
+.glass-card {
+  @apply bg-bg-card/80 backdrop-blur-xl border border-white/5;
+}
+body.light .glass-card {
+  @apply bg-white/90 border-black/5;
+}
+
+.masonry {
+  columns: 2 1;
+  column-gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .masonry { columns: 3; }
+}
+@media (min-width: 1024px) {
+  .masonry { columns: 4; }
+}
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 0.75rem;
+}
